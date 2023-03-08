@@ -1,0 +1,20 @@
+#!/bin/bash
+
+[[ $1 == "" ]] && echo "Usage: ./zippy <folder> <depth>" && exit 1
+[[ $2 == "" ]] && echo "Usage: ./zippy <folder> <depth>" && exit 1
+
+ln=$1
+
+for i in $(seq 1 $2)
+do
+	
+	cn=$(openssl rand -hex 16)
+	zip --password $cn $cn.zip $ln &>/dev/null
+	
+	rm $ln &>/dev/null
+	ln=$cn.zip
+	echo -ne "\r(Zipped $i/$2)"
+done
+
+rm -rf $1
+
