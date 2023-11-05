@@ -10,7 +10,7 @@ Zippy and Unzippy are tools created for creating a problem for a CTF-challenge, 
 ## zippy
 
 The following command will, layer by layer, zip up a file for *n* amount of times.
-
+```
 ./zippy <file> <depth>
 ```
 
